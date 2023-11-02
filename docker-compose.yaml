@@ -1,0 +1,29 @@
+version: '3.8'
+# services:
+#   dev-db:
+#     image: postgres:13
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: 123
+#       POSTGRES_DB: nest
+#     ports:
+#       - 5434:5432
+#     networks:
+#       - freecodecamp
+# networks:
+#   freecodecamp:
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    command: mysqld
+    environment:
+      MYSQL_USER: mysql
+      MYSQL_ROOT_PASSWORD: sha256_password
+      MYSQL_DATABASE: mysql_nest
+    ports:
+      - "3306:3306"
+    networks:
+      - freecodecamp
+networks:
+  freecodecamp:
